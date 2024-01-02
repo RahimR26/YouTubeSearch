@@ -4,6 +4,8 @@ This repository contains a test automation framework for testing YouTube search 
 
 ## Test Cases
 
+### FYI: Sometimes when running the test case for the first time, if it takes too long for the query to type into the search box, try re-running the test case.
+
 ### 1. SearchCorrection Test
 
 In this test, an intentionally incorrect word is provided for search, and the framework checks if YouTube provides a correct suggestion after the search. It will print the correction by youtube as a result.
@@ -44,7 +46,7 @@ private int getVideoDurationInSeconds(String selector) {
 
 ### 3. SearchFilterDurationFail Test
 
-In this test, We are checking to see if the durations of the videos correspond with the 4-20 minute duration WITHOUT the filter from YouTube by using an if statement instead of an assertion.
+In this test, We are checking to see if the durations of the videos correspond with the 4-20 minute duration WITHOUT the filter from YouTube by using an if statement instead of an assertion. The reason why I used if instead of assert was due to the fact that with Java in playwright it apparently only allows for hard assertions which halt the process after the first iteration.
 
 ```java
 resultsPage.assertEachResultHasDurationBetweenFail(4, 20);
